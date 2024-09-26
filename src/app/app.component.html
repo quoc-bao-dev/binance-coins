@@ -1,0 +1,212 @@
+<div class="px-16 py-4 bg-gray-100">
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="font-medium text-4xl">Markets Overview</h1>
+            <p class="pt-1 text-sm text-gray-500">
+                All price information is in <span class="font-medium">USD</span>
+            </p>
+        </div>
+        <div class="flex items-center gap-1">
+            <i class="fa-solid fa-chart-simple"></i>
+            <p class="font-medium">Trading Data</p>
+        </div>
+    </div>
+    <div class="pt-5">
+        <div class="grid gap-3 grid-cols-4">
+            <!-- colum -->
+            <div>
+                <h2 class="text-sm text-gray-500">Highlight Coin</h2>
+                <div class="pt-3 flex flex-col">
+                    <div class="grid grid-cols-3 mb-2" *ngFor="let _coin of listHighlight">
+                        <div class="flex items-center gap-1">
+                            <img class="w-4 h-4 rounded-full" src="{{_coin.logo}}" alt="">
+                            <p class="font-medium">{{_coin.symbol}}</p>
+                        </div>
+
+                        <p class="text-sm text-gray-600">{{_coin.name}}</p>
+
+                        <p [ngClass]="_coin.quotes.USD.percent_change_24h > 0 ? 'text-green-600' : 'text-red-600'">
+                            {{_coin.quotes.USD.percent_change_24h | percent}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- colum -->
+
+            <!-- colum -->
+            <div>
+                <h2 class="text-sm text-gray-500">New Listing</h2>
+                <div class="pt-3 flex flex-col">
+                    <div class="grid grid-cols-3 mb-2" *ngFor="let _coin of listNewListing">
+                        <div class="flex items-center gap-1">
+                            <img class="w-4 h-4 rounded-full" src="{{_coin.logo}}" alt="">
+                            <p class="font-medium">{{_coin.symbol}}</p>
+                        </div>
+
+                        <p class="text-sm text-gray-600">{{_coin.name}}</p>
+
+                        <p [ngClass]="_coin.quotes.USD.percent_change_24h > 0 ? 'text-green-600' : 'text-red-600'">
+                            {{_coin.quotes.USD.percent_change_24h | percent}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- colum -->
+
+            <!-- colum -->
+            <div>
+                <h2 class="text-sm text-gray-500">Top Gainer Coin</h2>
+                <div class="pt-3 flex flex-col">
+                    <div class="grid grid-cols-3 mb-2" *ngFor="let _coin of listTopGainer">
+                        <div class="flex items-center gap-1">
+                            <img class="w-4 h-4 rounded-full" src="{{_coin.logo}}" alt="">
+                            <p class="font-medium">{{_coin.symbol}}</p>
+                        </div>
+
+                        <p class="text-sm text-gray-600">{{_coin.name}}</p>
+
+                        <p [ngClass]="_coin.quotes.USD.percent_change_24h > 0 ? 'text-green-600' : 'text-red-600'">
+                            {{_coin.quotes.USD.percent_change_24h | percent}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- colum -->
+
+            <!-- colum -->
+            <div>
+                <h2 class="text-sm text-gray-500">Top Volume Coin</h2>
+                <div class="pt-3 flex flex-col">
+                    <div class="grid grid-cols-3 mb-2" *ngFor="let _coin of listTopVolume">
+                        <div class="flex items-center gap-1">
+                            <img class="w-4 h-4 rounded-full" src="{{_coin.logo}}" alt="">
+                            <p class="font-medium">{{_coin.symbol}}</p>
+                        </div>
+
+                        <p class="text-sm text-gray-600">{{_coin.name}}</p>
+
+                        <p [ngClass]="_coin.quotes.USD.percent_change_24h > 0 ? 'text-green-600' : 'text-red-600'">
+                            {{_coin.quotes.USD.percent_change_24h | percent}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- colum -->
+        </div>
+    </div>
+</div>
+
+<div class="px-16 py-4">
+    <div class="flex justify-between items-center">
+        <div class="flex gap-2 text-gray-500">
+            <button class=" flex gap-2 items-center px-4 py-2">
+                <i class="fa-solid fa-star"></i>
+                <p class="font-medium">Favorites</p>
+            </button>
+
+            <button class=" flex gap-2 items-center px-4 py-3 text-yellow-500 bg-yellow-100">
+                <p class="font-medium">All Cryptos</p>
+            </button>
+
+            <button class=" flex gap-2 items-center px-4 py-3">
+                <p class="font-medium">Spot Markets</p>
+            </button>
+
+            <button class=" flex gap-2 items-center px-4 py-3">
+                <p class="font-medium">Feature Markets</p>
+            </button>
+
+            <button class=" flex gap-2 items-center px-4 py-3">
+                <p class="font-medium">New Listing</p>
+            </button>
+        </div>
+        <div class="relative">
+            <input type="text" class="border border-gray-300  py-3 pr-3 pl-10">
+            <div class="absolute left-4 top-[50%] translate-y-[-50%]">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-5">
+        <div class="flex justify-between">
+            <button class="px-4 py-2 font-medium flex items-center gap-1 bg-gray-100 text-gray-700">
+                <i class="fa-solid fa-table-cells-large"></i>
+                <p>All</p>
+            </button>
+
+            <div class="relative">
+                <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <p>Zones</p>
+                </button>
+                <div class="absolute -top-2 -right-3 px-1 py-1 font-medium text-xs bg-yellow-500 rounded">News</div>
+            </div>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <i class="fa-solid fa-star-of-life"></i>
+                <p>AI</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <i class="fa-solid fa-layer-group"></i>
+                <p>Layer 1/Layer 2</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Meataverse</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Meme</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Liquid Steaking</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Gaming</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>DeFi</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Innovation</p>
+            </button>
+
+            <button class="px-4 py-2 font-medium flex items-center gap-1 text-gray-500">
+                <p>Fan To</p>
+            </button>
+        </div>
+    </div>
+
+    <div class="pt-3">
+        <div class="grid grid-cols-5 gap-3 px-2 py-3 bg-gray-100 text-gray-500">
+            <button class="flex items-center gap-1">Name <i class="fa-solid fa-arrows-up-down"></i></button>
+            <div class="flex justify-between">
+                <button class="flex items-center gap-1">Price <i class="fa-solid fa-arrows-up-down"></i></button>
+                <select class="px-2  border border-gray-300 text-sm " name="" id="">
+                    <option value="24">24h</option>
+                </select>
+            </div>
+            <button class="flex items-center gap-1">Change <i class="fa-solid fa-arrows-up-down"></i></button>
+            <button class="flex items-center gap-1">24h Volume <i class="fa-solid fa-arrows-up-down"></i></button>
+            <button class="flex items-center gap-1">Market Cap <i class="fa-solid fa-arrows-up-down"></i></button>
+        </div>
+
+        <div *ngFor="let _coin of listCoin"
+            class="grid grid-cols-5 gap-3 py-3 border-b border-gray-300 px-2 text-gray-700">
+            <div class="flex gap-4 items-center">
+                <img class="w-7 h-7 rounded-full" src="{{_coin.logo}}" alt="">
+                <p class="font-medium">{{_coin.symbol}}</p>
+                <p class="text-gray-500 text-sm">{{_coin.name}}</p>
+            </div>
+            <p class=" text-right">{{_coin.quotes.USD.price | currency}}</p>
+            <p class=" text-right"
+                [ngClass]="_coin.quotes.USD.percent_change_24h > 0 ? 'text-green-600' : 'text-red-600'">
+                {{_coin.quotes.USD.percent_change_24h | percent}}</p>
+            <p class=" text-right">{{_coin.quotes.USD.volume_24h | currency}}</p>
+            <p class=" text-right">{{_coin.quotes.USD.market_cap | currency}}</p>
+        </div>
+    </div>
+</div>
+<div class="py-5"></div>
